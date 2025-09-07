@@ -74,6 +74,12 @@
   letter-spacing: -1.2px;
 }
 
+@media (min-width: 768px) {
+  .heading-lg {
+    font-size: 64px;
+  }
+}
+
 .heading-md {
   font-family: var(--font-overpass);
   font-weight: 600;
@@ -142,35 +148,48 @@
   border: solid 1px var(--color-white);
 }
 
-/* Header */
-.header {
+/* Body */
+body {
   position: relative;
-  height: 600px;
-
-  padding-block: var(--spacing-700);
-  padding-inline: var(--spacing-200);
-
-  text-align: center;
-
-  background: var(--gradient-2);
-  border-bottom-left-radius: 120px;
-  overflow: hidden;
 }
 
-.header::before {
+body::before {
   content: "";
   position: absolute;
-  inset: 0;
-  z-index: 0;
+  width: 100%;
+  height: 600px;
+  z-index: -2;
+
+  background: var(--gradient-2);
+  border-bottom-left-radius: 160px;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 600px;
+  z-index: -1;
 
   background: url("../images/bg-pattern-intro-mobile.svg") no-repeat top left;
   background-position: -275px -250px;
+  border-bottom-left-radius: 160px;
 }
 
-.navbar,
-.header-content {
-  position: relative;
-  z-index: 1;
+@media (min-width: 768px) {
+  body::after {
+    background: url("../images/bg-pattern-intro-desktop.svg") no-repeat center /
+      150%;
+    filter: brightness(1.1);
+  }
+}
+
+/* Header */
+header {
+  padding-block: var(--spacing-700);
+  padding-inline: var(--spacing-200);
 }
 
 .navbar {
@@ -180,25 +199,46 @@
   margin-bottom: var(--spacing-1000);
 }
 
-.header-content {
-  position: relative;
+@media (min-width: 768px) {
+  header {
+    padding-inline: var(--spacing-400);
+  }
+}
+
+@media (min-width: 1200px) {
+  header {
+    max-width: 1250px;
+    margin: auto;
+  }
+}
+
+/* Main */
+@media (min-width: 768px) {
+  main {
+    max-width: 550px;
+    margin: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  main {
+    max-width: 900px;
+    margin: auto;
+  }
+}
+
+/* Hero */
+.hero {
+  text-align: center;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-300);
   color: var(--color-white);
 }
 
-.header-buttons {
+.hero-buttons {
   display: flex;
   justify-content: center;
   gap: var(--spacing-200);
   padding-top: var(--spacing-200);
-}
-
-@media (min-width: 768px) {
-  .header::before {
-    background: url("../images/bg-pattern-intro-desktop.svg") no-repeat center /
-      150%;
-    filter:brightness(1.1);
-  }
 }
