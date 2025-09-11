@@ -1,13 +1,209 @@
 /* Import fonts */
 @import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
-/* Reset / Normalize */
+/* Style Guide */
+:root {
+  /* Colors */
+
+  /* Base colors */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Grays */
+  --gray-950: #24242c;
+  --gray-600: #4c5862;
+  --gray-550: #878d92;
+  --gray-100: #e7e7e7;
+
+  /* Purples */
+  --purple-950: #2d2e40;
+  --purple-900: #3e4062;
+  --purple-800: #52526f;
+
+  /* Reds */
+  --red-500: #ff505c;
+  --red-400: #ff7b86;
+  --red-50: #f9f6f6;
+
+  /* Blue */
+  --blue-900: #1f3e5a;
+
+  /* Gradients */
+  --gradient-1: linear-gradient(135deg, #2d2e40, #3f4164);
+  --gradient-2: linear-gradient(135deg, #ff8f71, #ff3e55);
+
+  /* Font families */
+  --font-overpass: "Overpass", sans-serif;
+  --font-ubuntu: "Ubuntu", sans-serif;
+
+  /* Spacing */
+  --spacing-0: 0rem;
+  --spacing-100: 0.5rem; /* 8px */
+  --spacing-200: 1rem; /* 16px */
+  --spacing-300: 1.5rem; /* 24px */
+  --spacing-400: 2rem; /* 32px */
+  --spacing-500: 2.5rem; /* 40px */
+  --spacing-600: 3rem; /* 48px */
+  --spacing-700: 3.5rem; /* 56px */
+  --spacing-800: 4rem; /* 64px */
+  --spacing-900: 4.5rem; /* 72px */
+  --spacing-1000: 5rem; /* 80px */
+}
+
+/* Reset / Normalize / Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background-color: orange;
+/* Layout */
+
+.container {
+  margin: 0 auto;
+  padding-left: var(--spacing-100);
+  padding-right: var(--spacing-100);
+}
+
+/* Headings */
+.heading-xl {
+  font-family: var(--font-overpass);
+  font-weight: 600; /* SemiBold */
+  font-size: 4rem; /* 64px */
+  line-height: 100%; /* 64px */
+  letter-spacing: -0.125rem; /* -2px */
+}
+
+.heading-lg {
+  font-family: var(--font-overpass);
+  font-weight: 600;
+  font-size: 2.5rem; /* 40px */
+  line-height: 125%; /* 50px */
+  letter-spacing: -0.075rem; /* -1.2px */
+}
+
+.heading-md {
+  font-family: var(--font-overpass);
+  font-weight: 600;
+  font-size: 1.75rem; /* 28px */
+  line-height: 100%; /* 28px */
+  letter-spacing: 0rem; /* 0px */
+  margin-bottom: var(--spacing-200);
+}
+
+/* Body text */
+.body-lg {
+  font-family: var(--font-overpass);
+  font-weight: 300; /* Light */
+  font-size: 1.25rem; /* 20px */
+  line-height: 125%; /* 25px */
+  letter-spacing: 0rem;
+}
+
+.body-md {
+  font-family: var(--font-overpass);
+  font-weight: 300;
+  font-size: 1rem; /* 16px */
+  line-height: 175%; /* 28px */
+  letter-spacing: 0.0375rem; /* 0.6px */
+}
+
+/* Small text / labels */
+.body-sm-bold {
+  font-family: var(--font-ubuntu);
+  font-weight: 700; /* Bold */
+  font-size: 1rem; /* 16px */
+  line-height: 115%; /* ~18px */
+  letter-spacing: 0rem;
+}
+
+.body-sm-regular {
+  font-family: var(--font-ubuntu);
+  font-weight: 400; /* Regular */
+  font-size: 1rem; /* 16px */
+  line-height: 200%; /* 32px */
+  letter-spacing: 0rem;
+}
+
+/* Components */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.725rem 1rem;
+  border-radius: 5rem;
+  background-color: var(--color-white);
+  color: var(--red-500);
+
+  font-family: var(--font-ubuntu);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 115%;
+
+  text-decoration: none;
+}
+
+.btn-ghost {
+  background: none;
+  color: var(--color-white);
+  border: solid 1px var(--color-white);
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: scale(0.98);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-ghost:hover {
+  background-color: var(--color-white);
+  color: var(--red-500);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Header */
+header {
+  padding-top: var(--spacing-700);
+  min-height: 35rem;
+  background: url("../images/bg-pattern-intro-mobile.svg") no-repeat 40% 40%,
+    var(--gradient-2);
+  border-bottom-left-radius: 7rem;
+  margin-bottom: var(--spacing-1000);
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-1000);
+}
+
+.hero-section {
+  text-align: center;
+  color: var(--color-white);
+}
+
+.hero-section > * + * {
+  margin-top: var(--spacing-200);
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 4rem;
+    line-height: 100%;
+    letter-spacing: -0.125rem;
+  }
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-200);
+  padding-top: var(--spacing-200);
+}
+
+/* Features */
+.features-section {
+  text-align: center;
 }
